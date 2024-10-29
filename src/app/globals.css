@@ -2,26 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Ensure padding and borders don't affect the width */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+img, video, iframe {
+  max-width: 100%; /* Prevent images/videos from causing overflow */
+  height: auto;
+}
+
+.container {
+  width: 100%;
+  padding: 20px;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+/* Reset and box-sizing for all elements */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Ensure padding and borders are within width */
+}
+
+/* Prevent horizontal scroll */
+html, body {
+  width: 100%;
+  overflow-x: hidden; /* No horizontal scroll */
+  background-color: lightblue;
+}
+
+/* For mobile screens (width 480px or less) */
+@media only screen and (max-width: 480px) {
+  body {
+    overflow-x: hidden; /* Ensure no horizontal scroll on mobile */
+    background-color: lightgreen;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+/* Default styles for desktop */
+.container {
+  width: 100%;
+  padding: 20px;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+/* For tablet screens (width 768px or less) */
+@media only screen and (max-width: 768px) {
+  .container {
+    padding: 10px;
+    overflow-x: hidden;
   }
+}
+
+/* For mobile screens (width 480px or less) */
+@media only screen and (max-width: 480px) {
+  .container {
+    padding: 5px;
+    overflow-x: hidden;
+  }
+}
+
+/* Prevent wide elements from overflowing */
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
 }
